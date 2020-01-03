@@ -53,11 +53,11 @@ contract Crowdsale is WhitelistedRole, SignerRole {
   }
 
   /**
-    * @dev This function allow the update of the rate on the contract
+    * @dev This function allow a valid signer to update of the rate on the contract
     * @dev The rate must always be an integer greater than 0
     * @param _newRate How many tokens per ether
     */
-  function updateRate(uint256 _newRate) public {
+  function updateRate(uint256 _newRate) public onlySigner() { 
     rate = _newRate;
     emit RateUpdated(rate);
   }
@@ -80,9 +80,7 @@ contract Crowdsale is WhitelistedRole, SignerRole {
     * @param _amount Amount of ether to retrieve
     * @param _token Token to retrieve (works for external stucked tokens)
     */
-  function withdrawToken(address _to, uint256 _amount, IERC20 _token)
-    public
-    onlySigner()
+  function withdrawToken(address _to, uint256 _amount, IERC20 _token) public onlySigner()
   {
     require(_to != address(0), "Receiver cannot be zero address");
     require(_amount <= _token.balanceOf(address(this)), "Not enough funds");
@@ -96,5 +94,3 @@ contract Crowdsale is WhitelistedRole, SignerRole {
   event EthWithdrawn(address indexed _to, uint256 _amount);
   event TokenWithdrawn(address indexed _to, uint256 _amount, IERC20 _token);
 }
-
-Actual treat jeans olive adult warfare exclude fiber battle duck network duck
