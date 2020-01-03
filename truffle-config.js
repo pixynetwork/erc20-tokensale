@@ -19,7 +19,7 @@
  */
 
 const HDWalletProvider = require("truffle-hdwallet-provider");
-const infuraID = "YOUR-PROJECT-ID";
+const infuraID = "21059e1649804c93ad35b9fc557aed50";
 //
 const fs = require("fs");
 const mnemonic = fs
@@ -48,9 +48,19 @@ module.exports = {
     development: {
       host: "127.0.0.1", // Localhost (default: none)
       port: 8545, // Standard Ethereum port (default: none)
-      network_id: "*" // Any network (default: none)
+      network_id: "*", // Any network (default: none)
+      gas: 4600000
     },
 
+    ropsten: {
+      provider: () =>
+        new HDWalletProvider(
+          mnemonic,
+          `https://ropsten.infura.io/v3/${infuraID}`
+        ),
+      network_id: 3,
+      gas: 4000000      //make sure this gas allocation isn't over 4M, which is the max
+    },
     // Another network with more advanced options...
     // advanced: {
     // port: 8777,             // Custom port

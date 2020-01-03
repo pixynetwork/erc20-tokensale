@@ -10,6 +10,7 @@
     "build": "truffle compile",
     "test": "truffle test",
     "staging": "truffle migrate --network development",
+    "deploytest": "truffle migrate --network ropsten",
     "deploy": "truffle migrate --network mainnet"
   },
   "keywords": [
