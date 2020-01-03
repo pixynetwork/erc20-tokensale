@@ -6,10 +6,26 @@ The ERC20 token is a standard Open Zeppelin implementation with a total supply o
 
 # Building, testing and deploying
 
-This project was developed with Node version XX.YY.
+This project was developed with Node version 10.16. To install this on mac, do
+
+```
+brew install node@10
+brew link node@10
+```
+You will also need to setup environment variables:
+```
+export LDFLAGS="-L/usr/local/opt/node@10/lib"
+export CPPFLAGS="-I/usr/local/opt/node@10/include"
+export PATH="/usr/local/opt/node@10/bin:$PATH"
+```
 
 ## Dependencies
-First we install truffle and ganache
+If you have not done so already, install Ethereum:
+```
+brew tap ethereum/ethereum
+brew install ethereum
+```
+Next we install truffle and ganache
 ```
 npm install -g truffle ganache-cli
 ```
@@ -27,8 +43,7 @@ export INITIAL_RATE="1000"
 export INITIAL_LIMIT="1000000000000000000000"
 ```
 ## Build
-
-To build the project run:
+Before you can build, you will need to generate a `.secret` with 12 words in it. To build the project run:
 
 ```
 npm run build
