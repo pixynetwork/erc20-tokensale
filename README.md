@@ -1,6 +1,8 @@
 # Pixy token and crowdsale contract
 
-# Introduction
+This repository contains the Pixy Network ERC20 contract and the corresponding crowd sale contract. The crowd sale will be performed by whitelisting individuals that has undergone KYC after which they can purchase tokens up to a given limit.
+
+The ERC20 token is a standard Open Zeppelin implementation with a total supply of 107,000,000. The crowdsale contract is based on Open Zeppelin Signer and Whitelisted roles with custom logic to manage the token sale. 
 
 # Building, testing and deploying
 
@@ -64,21 +66,15 @@ npm run deploy
 
 # Description of contract
 
-The contract consists of two 	
-
-## The ERC20 contract
-
-Function | Purpose 
-------- | --- 
-Seconds | 283 
+The contract consists of two contracts. The first contract is a standard Open Zeppelin ERC20 contract and will not be described here. The second contract is the crowd sale contract. This one contains custom logic. We describe the purpose of the logic below:
 
 
 ## The crowdsale contract
 
 Function | Purpose 
 ------- | --- 
-purchaseTokens | 283 
-setPurchaseLimit | Sets the limit which any one address can purchase
-updateRate | Updates the price per token
+purchaseTokens | Used to purchase tokens. 
+setPurchaseLimit | Sets the limit which any one address can purchase. 
+updateRate | Updates the price per token. 
 withdrawEth | Withdraws ETH from the contract
 withdrawToken | Withdraws Pixy tokens from the contract 
